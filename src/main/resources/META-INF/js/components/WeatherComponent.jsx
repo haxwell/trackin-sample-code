@@ -15,12 +15,6 @@ export default class WeatherComponent extends React.Component {
 		this.handleGoButtonClick = this.handleGoButtonClick.bind(this);
 		this.handleWeatherQueryChanged = this.handleWeatherQueryChanged.bind(this);
 	}
-	
-	componentWillMount() {
-
-	}
-
-	
 
 	handleGoButtonClick() {
 		let toSend = {method: 'GET', path: 'http://api.openweathermap.org/data/2.5/weather?q='+this.state.weatherQuery.value+'&APPID=35f957745a52c6259ede6ac1cee74af2'};
@@ -28,7 +22,19 @@ export default class WeatherComponent extends React.Component {
 		client(toSend).then(
 			(response) => {
 				if (response) {
-					alert("Here's the weather in " + this.state.weatherQuery.value + "\n\n" + response.entity.weather[0]["main"] + "\n" + response.entity.weather[0]["description"] + "\n\n"); 
+					let temp = ((response.entity.main.temp * 1.8) - 459.67);
+					let hi = ((response.entity.main.temp_max * 1.8) - 459.67);
+					let lo = ((response.entity.main.temp_min * 1.8) - 459.67);
+					
+					alert("Here's the weather in " + this.state.weatherQuery.value + "\n\n" + 
+						response.entity.weather[0]["main"] + "\n" + 
+						response.entity.weather[0]["description"] + 
+						"\n\n" +
+						"Temp (f): " + Math.round(temp) +
+						"\n" +
+						"Hi (f): " + Math.round(hi) +
+						"\n" +
+						"Lo (f): " + Math.round(lo)); 
 				}
 			}, 
 			(err) => { 

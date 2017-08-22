@@ -17,10 +17,6 @@ export default class JokeComponent extends React.Component {
 		this.handleNumberChanged = this.handleNumberChanged.bind(this);
 	}
 	
-	componentWillMount() {
-
-	}
-
 	handleGoButtonClick() {
 		let self = this;
 		
