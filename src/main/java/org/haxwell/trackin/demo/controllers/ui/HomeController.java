@@ -19,29 +19,6 @@ public class HomeController {
 
 	@GetMapping
 	public String getTemplateUIName(HttpServletRequest request, Model model) {
-//		HomeObject homeObj = new HomeObject();
-//
-//		homeObj.setLoggedIn(!(request.getRemoteUser() == null));
-//		model.addAttribute("homeObj", homeObj);
-		
 		return "home";
 	}
-
-//	public class HomeObject {
-//
-//		private boolean loggedIn;
-//
-//		public boolean getLoggedIn() {
-//			return loggedIn;
-//		}
-//
-//		public void setLoggedIn(boolean isLoggedIn) {
-//			this.loggedIn = isLoggedIn;
-//		}
-//
-//		public HomeObject() {
-//			
-//		} 
-//		
-//	}
 }
