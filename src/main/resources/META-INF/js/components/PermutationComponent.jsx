@@ -1,25 +1,26 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import _ from 'underscore';
 
 import TextInputField from '../common/TextInputField'
 
-const client = require('../common/client');
+const isPermutation = require('../common/isPermutation');
 
 export default class PermutationComponent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {string1: {value: ''}, string2: {value: ''}};
+		
+		this.handleGoButtonClick = this.handleGoButtonClick.bind(this);
+		this.handleString1Changed = this.handleString1Changed.bind(this);
+		this.handleString2Changed = this.handleString2Changed.bind(this);
 	}
 	
-	componentWillMount() {
-
-	}
-
 	handleGoButtonClick() {
-		let self = this;
-		
+		if (isPermutation(this.state.string1.value, this.state.string2.value))
+			alert("These strings are permutations of each other.");
+		else 
+			alert("These strings are NOT permutations of each other.");
 	}
 	
 	handleString1Changed(e) {
