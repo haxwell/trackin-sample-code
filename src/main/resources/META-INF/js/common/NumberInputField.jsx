@@ -8,7 +8,7 @@ export default class NumberInputField extends React.Component {
 	
 	render() {
 		return (
-			<input type="number" value={this.props.value} onChange={this.props.onChangeHandler} placeholder={this.props.placeholder} />
+			<input type="number" min={this.props.minValue} max={this.props.maxValue} value={this.props.value} onChange={this.props.onChangeHandler} placeholder={this.props.placeholder} />
 		);
 	}
 }

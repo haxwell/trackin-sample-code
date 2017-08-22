@@ -34,9 +34,9 @@ export default class PermutationComponent extends React.Component {
 		return (
 			<div>
 				Enter two strings:  
-				<TextInputField placeholder='String 1' />
-				<TextInputField placeholder='String 2' />
-				<button onClick={this.handlePermutationButtonClick}>Go!</button>
+				<TextInputField onChangeHandler={this.handleString1Changed} value={this.state.string1.value} placeholder='..one' />
+				<TextInputField onChangeHandler={this.handleString2Changed} value={this.state.string2.value} placeholder='..two' />
+				<button onClick={this.handleGoButtonClick}>Go!</button>
 			</div>
 		)
 	}
