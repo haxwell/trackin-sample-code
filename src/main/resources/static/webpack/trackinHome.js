@@ -60,6 +60,14 @@
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
+	var _TextInputField = __webpack_require__(185);
+
+	var _TextInputField2 = _interopRequireDefault(_TextInputField);
+
+	var _NumberInputField = __webpack_require__(186);
+
+	var _NumberInputField2 = _interopRequireDefault(_NumberInputField);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -86,7 +94,40 @@
 				return _react2.default.createElement(
 					'div',
 					null,
-					'Trackin Home Rendered!'
+					_react2.default.createElement(
+						'div',
+						null,
+						'What is the weather today in',
+						_react2.default.createElement(_TextInputField2.default, { placeholder: 'Enter "city, country"' }),
+						_react2.default.createElement(
+							'button',
+							{ onClick: this.handleWeathButtonClick },
+							'Go!'
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'Pick a number.. I\'ll tell you a joke',
+						_react2.default.createElement(_NumberInputField2.default, null),
+						_react2.default.createElement(
+							'button',
+							{ onClick: this.handleJokeButtonClick },
+							'Go!'
+						)
+					),
+					_react2.default.createElement(
+						'div',
+						null,
+						'Enter two strings:',
+						_react2.default.createElement(_TextInputField2.default, { placeholder: 'String 1' }),
+						_react2.default.createElement(_TextInputField2.default, { placeholder: 'String 2' }),
+						_react2.default.createElement(
+							'button',
+							{ onClick: this.handlePermutationButtonClick },
+							'Go!'
+						)
+					)
 				);
 			}
 		}]);
@@ -23773,6 +23814,96 @@
 	  }
 	}.call(this));
 
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TextInputField = function (_React$Component) {
+		_inherits(TextInputField, _React$Component);
+
+		function TextInputField(props) {
+			_classCallCheck(this, TextInputField);
+
+			return _possibleConstructorReturn(this, (TextInputField.__proto__ || Object.getPrototypeOf(TextInputField)).call(this, props));
+		}
+
+		_createClass(TextInputField, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement("input", { type: "text", value: this.props.value, onChange: this.props.onChangeHandler, placeholder: this.props.placeholder });
+			}
+		}]);
+
+		return TextInputField;
+	}(_react2.default.Component);
+
+	exports.default = TextInputField;
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var NumberInputField = function (_React$Component) {
+		_inherits(NumberInputField, _React$Component);
+
+		function NumberInputField(props) {
+			_classCallCheck(this, NumberInputField);
+
+			return _possibleConstructorReturn(this, (NumberInputField.__proto__ || Object.getPrototypeOf(NumberInputField)).call(this, props));
+		}
+
+		_createClass(NumberInputField, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement("input", { type: "number", value: this.props.value, onChange: this.props.onChangeHandler, placeholder: this.props.placeholder });
+			}
+		}]);
+
+		return NumberInputField;
+	}(_react2.default.Component);
+
+	exports.default = NumberInputField;
 
 /***/ })
 /******/ ]);
