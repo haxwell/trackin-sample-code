@@ -3,40 +3,59 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'underscore';
 
-import TextInputField from './common/TextInputField'
+import WeatherComponent from './components/WeatherComponent'
+import JokeComponent from './components/JokeComponent'
+import PermutationComponent from './components/PermutationComponent'
+
 import NumberInputField from './common/NumberInputField'
+
+const client = require('./common/client');
 
 class TrackinHome extends React.Component {
 	constructor(props) {
 		super(props);
-
+		this.state = {weatherQuery: {value: ''}};
 	}
 	
 	componentWillMount() {
 
 	}
 
+	handleWeatherButtonClick() {
+		let self = this;
+		
+		if (this.state.wineAttributeName.value && this.state.wineAttributeName.value.length > 0) {
+			let obj = {};
+			
+			obj.name = this.state.wineAttributeName.value;
+			let toSend = {method: 'POST', path: '/api/wine-attribute', entity: JSON.stringify(obj)};
+			
+			client(toSend).then((response,error) => {
+				if (response) {
+					alert('Saved: ' + JSON.stringify(obj));
+					
+					self.setState({wineAttributeName: {value: ''}});
+				}
+				else
+					alert('ERROR!: ' + JSON.stringify(obj));
+			});
+		}
+	}
+	
+	handleResetButtonClick() {
+		this.setState({wineAttributeName: {value: ''}});
+	};
+	
+	handleNameChanged(e) {
+		this.setState({wineAttributeName: {value: e.target.value}});
+	}
+
 	render() {
 		return (
 			<div>
-				<div>
-					What is the weather today in 
-					<TextInputField placeholder='Enter "city, country"' />
-					<button onClick={this.handleWeathButtonClick}>Go!</button>
-				</div>
-				<br/>
-				<div>
-					Pick a number.. I'll tell you a joke 
-					<NumberInputField />
-					<button onClick={this.handleJokeButtonClick}>Go!</button>
-				</div>
-				<br/>
-				<div>
-					Enter two strings:  
-					<TextInputField placeholder='String 1' />
-					<TextInputField placeholder='String 2' />
-					<button onClick={this.handlePermutationButtonClick}>Go!</button>
-				</div>
+				<WeatherComponent />
+				<JokeComponent />
+				<PermutationComponent />
 			</div>
 		)
 	}
