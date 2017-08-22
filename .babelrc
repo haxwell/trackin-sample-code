@@ -1,0 +1,7 @@
+{
+  "presets": ["es2015", "env", "react"]
+}
+
+// http://kleopetrov.me/2016/03/18/everything-about-babel/
+//
+// article was useful
