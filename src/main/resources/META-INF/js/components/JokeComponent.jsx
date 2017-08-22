@@ -24,9 +24,11 @@ export default class JokeComponent extends React.Component {
 	handleGoButtonClick() {
 		let self = this;
 		
-		// TODO: Check for max
-
-		if (!this.state.usedJokeNumbers.list.some((obj) => { return obj === self.state.jokeNumber.value; })) {
+		if (this.state.jokeNumber.value < 1 || this.state.jokeNumber.value > 50) {
+			alert("Please pick a joke number between 1 and 50!");
+			self.setState({jokeNumber: {value: 1}});
+		} 
+		else if (!this.state.usedJokeNumbers.list.some((obj) => { return obj === self.state.jokeNumber.value; })) {
 			
 			let data = {method: 'GET', path: '/api/jokes/' + this.state.jokeNumber.value};
 			
